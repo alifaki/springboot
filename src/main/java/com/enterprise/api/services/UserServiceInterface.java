@@ -1,12 +1,11 @@
 package com.enterprise.api.services;
 
+import com.enterprise.api.Models.User;
+import java.util.List;
+
 public interface UserServiceInterface {
 
-    String createUser();
+    User createUser(User user);
 
-    String getUser();
-
-    String updateUser();
-
-    String deleteUser();
+    List<User> getAllUsers();
 }
