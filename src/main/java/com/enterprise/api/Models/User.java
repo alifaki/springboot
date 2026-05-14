@@ -12,7 +12,7 @@ import jakarta.persistence.Column;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+    private Integer id;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -20,9 +20,24 @@ public class User {
     @Column(name = "email", nullable = false)
     private String email;
 
-    public User(String name, String email) {
+    @Column(name = "password", nullable = true)
+    private String password;
+
+    public User() {
+    }
+
+    public User(String name, String email, String password) {
         this.name = name;
         this.email = email;
+        this.password = password;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -39,5 +54,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
